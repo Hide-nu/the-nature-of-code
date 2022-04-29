@@ -18,5 +18,9 @@ function draw() {
   const center = createVector(width / 2, height / 2);
 
   mouse.sub(center);
-  line(0, 0, mouse.x, mouse.y);
+  mouse.mult(0.1);
+
+  const m = mouse.mag();
+  fill(255, 0, 0);
+  rect(0, 0, m, 20);
 }
