@@ -16,23 +16,20 @@ function draw() {
 
 class Ball {
   constructor() {
-    this.x = width / 2;
-    this.y = height / 2;
-    this.xspeed = 2.5;
-    this.yspeed = -2;
+    this.location = createVector(width / 2, height / 2);
+    this.velocity = createVector(2.5, -2);
   }
 
   move() {
-    this.x += this.xspeed;
-    this.y += this.yspeed;
+    this.location.add(this.velocity);
   }
 
   bounce() {
-    if (this.x > width || this.x < 0) {
-      this.xspeed *= -1;
+    if (this.location.x > width || this.location.x < 0) {
+      this.velocity.x *= -1;
     }
-    if (this.y > height || this.y < 0) {
-      this.yspeed *= -1;
+    if (this.location.y > height || this.location.y < 0) {
+      this.velocity.y *= -1;
     }
   }
 
@@ -40,6 +37,6 @@ class Ball {
     stroke(0);
     strokeWeight(2);
     fill(127);
-    ellipse(this.x, this.y, 48, 48);
+    ellipse(this.location.x, this.location.y, 48, 48);
   }
 }
